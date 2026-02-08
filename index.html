@@ -829,9 +829,16 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="address">Адрес</label>
-                        <input type="text" id="address" name="address" placeholder="ул. Ленина, 15">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Дата</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Адрес</label>
+                            <input type="text" id="address" name="address" placeholder="ул. Ленина, 15">
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary form-submit">📱 Отправить в WhatsApp</button>
@@ -1194,6 +1201,7 @@
                 `\n📞 *Телефон:* ${formData.phone}` +
                 `\n🔧 *Услуга:* ${serviceNames[formData.service] || 'Не указано'}` +
                 `\n📦 *Объём:* ${volumeNames[formData.volume] || 'Не указано'}` +
+                (formData.date ? `\n📅 *Дата:* ${formData.date}` : '') +
                 `\n📍 *Адрес:* ${formData.address || 'Не указан'}` +
                 `\n\n⏰ ${new Date().toLocaleString('ru-RU')}` +
                 `\n\nПожалуйста, перезвоните мне для подтверждения заказа.`
