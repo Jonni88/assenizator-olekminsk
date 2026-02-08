@@ -3,188 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Услуги ассенизатора в Олёкминске. Откачка септиков, выгребных ям, канализации. 5 кубов — 2750₽, 10 кубов — 5000₽.">
-    <title>Ассенизатор Олёкминск — Откачка септиков и выгребных ям</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Услуги ассенизатора в Олёкминске. Откачка септиков, выгребных ям, канализации. 5 кубов — 2750₽, 10 кубов — 5000₽. Выезд 24/7.">
+    <meta name="keywords" content="ассенизатор, откачка септика, выгребная яма, канализация, Олёкминск">
+    <title>Ассенизатор Олёкминск | Откачка септиков и выгребных ям 24/7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #f97316;
             --primary-dark: #ea580c;
+            --primary-light: #fdba74;
             --secondary: #16a34a;
-            --dark: #1f2937;
+            --dark: #111827;
             --gray: #6b7280;
-            --light: #f3f4f6;
+            --light: #f9fafb;
             --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background: var(--white);
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 20px;
-            text-align: center;
-            position: sticky;
+        /* Navigation */
+        .nav {
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(249,115,22,0.3);
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
         }
 
-        .header-phone {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            display: inline-flex;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            height: 70px;
         }
 
-        .header-phone:hover {
-            text-decoration: underline;
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover { color: var(--primary); }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after { width: 100%; }
+
+        .nav-phone {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .nav-phone:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
         }
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--dark) 0%, #374151 100%);
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark) 0%, #1f2937 50%, #374151 100%);
             color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
+            padding: 120px 20px 80px;
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
 
         .hero::before {
-            content: '🚛';
+            content: '';
             position: absolute;
-            font-size: 300px;
-            opacity: 0.05;
-            right: -50px;
-            bottom: -50px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--white);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 20px;
         }
 
-        .hero h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 15px;
-            line-height: 1.2;
+        .hero-content h1 span {
+            color: var(--primary);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             opacity: 0.9;
             margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.6;
         }
 
         .hero-features {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .hero-feature {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249,115,22,0.2);
+            padding: 10px 18px;
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .hero-phone {
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(22,163,74,0.3);
+            border: none;
+            cursor: pointer;
         }
 
-        .hero-phone:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(22,163,74,0.4);
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(249,115,22,0.3);
         }
 
-        /* Prices */
-        .prices {
-            padding: 60px 20px;
-            background: var(--light);
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(249,115,22,0.4);
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+
+        /* Order Form */
+        .order-form {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            color: var(--dark);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .order-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
             color: var(--dark);
         }
 
-        .prices-grid {
-            max-width: 800px;
+        .order-form p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Services */
+        .services {
+            background: var(--light);
+        }
+
+        .services-grid {
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .price-card {
+        .service-card {
             background: var(--white);
             border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Prices */
+        .prices-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
             position: relative;
-            overflow: hidden;
+            border: 2px solid transparent;
         }
 
         .price-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .price-card.popular::before {
-            content: 'ПОПУЛЯРНО';
+        .price-card.popular {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .price-card.popular:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .price-badge {
             position: absolute;
-            top: 15px;
-            right: -35px;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
             background: var(--primary);
             color: var(--white);
-            padding: 5px 40px;
-            font-size: 0.75rem;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 600;
-            transform: rotate(45deg);
         }
 
         .price-icon {
@@ -193,22 +443,16 @@
         }
 
         .price-volume {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
+            font-size: 1.1rem;
+            color: var(--gray);
             margin-bottom: 10px;
         }
 
-        .price-volume span {
-            font-size: 1.2rem;
-            color: var(--gray);
-        }
-
         .price-amount {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--dark);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .price-amount span {
@@ -216,91 +460,34 @@
             color: var(--gray);
         }
 
+        .price-description {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
         .price-features {
             list-style: none;
             text-align: left;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .price-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light);
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .price-features li::before {
             content: '✓';
             color: var(--secondary);
             font-weight: 700;
-        }
-
-        .price-btn {
-            display: block;
-            width: 100%;
-            background: var(--primary);
-            color: var(--white);
-            padding: 15px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .price-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Services */
-        .services {
-            padding: 60px 20px;
-        }
-
-        .services-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 2px solid var(--light);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(249,115,22,0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
             font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .service-card p {
-            color: var(--gray);
-            font-size: 0.95rem;
         }
 
         /* Why Us */
         .why-us {
-            padding: 60px 20px;
             background: var(--dark);
             color: var(--white);
         }
@@ -310,53 +497,175 @@
         }
 
         .why-grid {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
 
         .why-item {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            transition: all 0.3s;
         }
 
-        .why-number {
+        .why-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
             font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .why-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
         .why-item p {
             opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Process */
+        .process {
+            background: var(--light);
+        }
+
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(249,115,22,0.3);
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .process-step p {
+            color: var(--gray);
             font-size: 0.9rem;
         }
 
-        /* CTA */
-        .cta {
-            padding: 80px 20px;
+        /* Reviews */
+        .reviews-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: var(--dark);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .review-info h4 {
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .review-info p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
             text-align: center;
         }
 
-        .cta h2 {
-            font-size: 2rem;
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 20px;
         }
 
-        .cta p {
+        .cta-section p {
             font-size: 1.2rem;
             opacity: 0.95;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -384,171 +693,496 @@
 
         /* Footer */
         .footer {
-            padding: 30px 20px;
-            text-align: center;
             background: var(--dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-light);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active { display: flex; }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
             color: var(--gray);
-            font-size: 0.9rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .modal-subtitle {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-message.show { display: block; }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
         }
 
         /* Mobile */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px;
+        @media (max-width: 968px) {
+            .nav-menu,
+            .nav-phone {
+                display: none;
             }
-            
-            .hero h1 {
-                font-size: 1.6rem;
+
+            .nav-toggle {
+                display: block;
             }
-            
-            .hero-phone {
-                font-size: 1.1rem;
-                padding: 15px 30px;
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .prices-grid {
+
+            .hero-container {
                 grid-template-columns: 1fr;
             }
-            
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .order-form {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .price-card.popular {
+                transform: none;
+            }
+
+            .price-card.popular:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 640px) {
             .why-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .cta-phone {
-                font-size: 1.2rem;
-                padding: 15px 30px;
-                width: 100%;
-                justify-content: center;
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <a href="tel:+79143088587" class="header-phone">
-            📞 +7 (914) 308-85-87
-        </a>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge">Работаем 24/7</div>
-        <h1>Услуги ассенизатора<br>в Олёкминске</h1>
-        <p class="hero-subtitle">Откачка септиков, выгребных ям, канализации. Быстро, чисто, недорого.</p>
-        
-        <div class="hero-features">
-            <span class="hero-feature">⚡ Выезд за 30 мин</span>
-            <span class="hero-feature">💰 Цена от 2750₽</span>
-            <span class="hero-feature">🔧 Современное оборудование</span>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">🚛 Ассенизатор</a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#why">Почему мы</a></li>
+                <li><a href="#process">Как заказать</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+            </ul>
+            
+            <a href="tel:+79143088587" class="nav-phone">📞 Позвонить</a>
+            
+            <button class="nav-toggle" id="navToggle">☰</button>
         </div>
-        
-        <a href="tel:+79143088587" class="hero-phone">
-            📞 Позвонить сейчас
-        </a>
-    </section>
+    </nav>
 
-    <!-- Prices -->
-    <section class="prices" id="prices">
-        <h2 class="section-title">💰 Наши цены</h2>
-        
-        <div class="prices-grid">
-            <div class="price-card">
-                <div class="price-icon">🚛</div>
-                <div class="price-volume">5 <span>кубов</span></div>
-                <div class="price-amount">2 750 <span>₽</span></div>
-                <ul class="price-features">
-                    <li>Откачка септика</li>
-                    <li>Выгребная яма</li>
-                    <li>Канализация</li>
-                    <li>Выезд по городу</li>
-                </ul>
-                <a href="tel:+79143088587" class="price-btn">Заказать</a>
+    <!-- Hero Section with Form -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Откачка септиков <br><span>в Олёкминске</span></h1>
+                
+                <p class="hero-subtitle">Профессиональная откачка выгребных ям, септиков и канализации. Работаем 24/7. Выезд за 30 минут.</p>
+                
+                <div class="hero-features">
+                    <span class="hero-feature">⚡ Выезд 30 мин</span>
+                    <span class="hero-feature">💰 От 2750₽</span>
+                    <span class="hero-feature">📅 Без выходных</span>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#order" class="btn btn-primary">📝 Оставить заявку</a>
+                    <a href="tel:+79143088587" class="btn btn-outline">📞 Позвонить</a>
+                </div>
             </div>
             
-            <div class="price-card popular">
-                <div class="price-icon">🚛</div>
-                <div class="price-volume">10 <span>кубов</span></div>
-                <div class="price-amount">5 000 <span>₽</span></div>
-                <ul class="price-features">
-                    <li>Откачка септика</li>
-                    <li>Выгребная яма</li>
-                    <li>Канализация</li>
-                    <li>Большой объём — выгоднее!</li>
-                </ul>
-                <a href="tel:+79143088587" class="price-btn">Заказать</a>
+            <!-- Order Form -->
+            <div class="order-form" id="order">
+                <h3>🚛 Быстрая заявка</h3>
+                <p>Заполните форму — мы перезвоним за 5 минут</p>
+                
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (914) 308-85-87">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service">Услуга</label>
+                            <select id="service" name="service">
+                                <option value="">Выберите услугу</option>
+                                <option value="septik">Откачка септика</option>
+                                <option value="yam">Выгребная яма</option>
+                                <option value="kanal">Канализация</option>
+                                <option value="prom">Промышленная</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="volume">Объём</label>
+                            <select id="volume" name="volume">
+                                <option value="">Выберите объём</option>
+                                <option value="5">5 кубов (2750₽)</option>
+                                <option value="10">10 кубов (5000₽)</option>
+                                <option value="other">Другой</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Адрес</label>
+                        <input type="text" id="address" name="address" placeholder="ул. Ленина, 15">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" rows="3" placeholder="Удобное время, особенности подъезда..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary form-submit">📞 Заказать звонок</button>
+                    
+                    <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="services">
-        <h2 class="section-title">🔧 Что мы делаем</h2>
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="section-header">
+            <span class="section-label">Наши услуги</span>
+            <h2 class="section-title">Что мы делаем</h2>
+            <p class="section-subtitle">Профессиональные услуги ассенизатора для частных домов и организаций</p>
+        </div>
         
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🚽</div>
-                <h3>Откачка септиков</h3>
-                <p>Автономная канализация частных домов</p>
+                <div class="service-icon">🏠</div>
+                <h3>Септики</h3>
+                <p>Откачка автономной канализации частных домов и коттеджей любой сложности</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">🕳️</div>
                 <h3>Выгребные ямы</h3>
-                <p>Полная откачка и очистка ям любой глубины</p>
+                <p>Полная откачка и очистка выгребных ям любой глубины и объёма</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">🏭</div>
                 <h3>Канализация</h3>
-                <p>Прочистка и откачка канализационных систем</p>
+                <p>Прочистка и откачка канализационных систем, устранение засоров</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">🏗️</div>
-                <h3>Илосос</h3>
-                <p>Откачка жидких отходов с промышленных объектов</p>
+                <h3>Промышленные объекты</h3>
+                <p>Откачка жидких отходов с промышленных объектов и предприятий</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🚽</div>
+                <h3>Биотуалеты</h3>
+                <p>Обслуживание и откачка биотуалетов на мероприятиях и стройках</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Прочистка труб</h3>
+                <p>Гидродинамическая прочистка канализационных труб от засоров</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Us -->
-    <section class="why-us">
-        <h2 class="section-title">✅ Почему выбирают нас</h2>
+    <!-- Prices Section -->
+    <section class="section" id="prices">
+        <div class="section-header">
+            <span class="section-label">Прайс-лист</span>
+            <h2 class="section-title">Стоимость услуг</h2>
+            <p class="section-subtitle">Честные цены без скрытых платежей. Бесплатный выезд по городу.</p>
+        </div>
+        
+        <div class="prices-grid">
+            <div class="price-card">
+                <div class="price-icon">🚛</div>
+                <div class="price-volume">Объём бака</div>
+                <div class="price-amount">2 750<span>₽</span></div>
+                <p class="price-description">5 кубов</p>
+                
+                <ul class="price-features">
+                    <li>Выезд по городу — 0₽</li>
+                    <li>Откачка септика</li>
+                    <li>Выгребная яма</li>
+                    <li>Работа 30-40 мин</li>
+                    <li>Гарантия качества</li>
+                </ul>
+                
+                <button class="btn btn-primary" onclick="openModal('5 кубов — 2750₽')">Заказать</button>
+            </div>
+            
+            <div class="price-card popular">
+                <div class="price-badge">Выгодно</div>
+                <div class="price-icon">🚛</div>
+                <div class="price-volume">Объём бака</div>
+                <div class="price-amount">5 000<span>₽</span></div>
+                <p class="price-description">10 кубов</p>
+                
+                <ul class="price-features">
+                    <li>Выезд по городу — 0₽</li>
+                    <li>Откачка септика</li>
+                    <li>Большой объём</li>
+                    <li>Работа 50-60 мин</li>
+                    <li>Экономия 500₽</li>
+                </ul>
+                
+                <button class="btn btn-primary" onclick="openModal('10 кубов — 5000₽')">Заказать</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="section why-us" id="why">
+        <div class="section-header">
+            <span class="section-label">Преимущества</span>
+            <h2 class="section-title">Почему выбирают нас</h2>
+        </div>
         
         <div class="why-grid">
             <div class="why-item">
-                <div class="why-number">30</div>
-                <h3>минут</h3>
-                <p>Среднее время подачи машины</p>
+                <div class="why-icon">⚡</div>
+                <h3>Быстро</h3>
+                <p>Выезд за 30 минут. Работаем 24/7 без выходных</p>
             </div>
             
             <div class="why-item">
-                <div class="why-number">24/7</div>
-                <h3>Работаем</h3>
-                <p>Круглосуточно, без выходных</p>
+                <div class="why-icon">💰</div>
+                <h3>Честная цена</h3>
+                <p>Никаких скрытых платежей. Цена фиксируется при заказе</p>
             </div>
             
             <div class="why-item">
-                <div class="why-number">100%</div>
+                <div class="why-icon">🛡️</div>
                 <h3>Гарантия</h3>
-                <p>Качественная откачка без остатка</p>
+                <p>100% откачка без остатка. Современное оборудование</p>
             </div>
             
             <div class="why-item">
-                <div class="why-number">0₽</div>
-                <h3>Выезд</h3>
-                <p>Бесплатный выезд по городу</p>
+                <div class="why-icon">🚛</div>
+                <h3>Опыт</h3>
+                <p>Более 10 лет на рынке. Тысячи выполненных заказов</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <h2>🚛 Нужна откачка?</h2>
-        <p>Звоните прямо сейчас! Работаем 24/7. Выезд за 30 минут. Честные цены без скрытых платежей.</p>
+    <!-- Process Section -->
+    <section class="section process" id="process">
+        <div class="section-header">
+            <span class="section-label">Как мы работаем</span>
+            <h2 class="section-title">Как заказать</h2>
+            <p class="section-subtitle">Всего 4 простых шага до чистого септика</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Заявка</h3>
+                <p>Позвоните или оставьте заявку на сайте</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Выезд</h3>
+                <p>Приезжаем за 30 минут в удобное время</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Работа</h3>
+                <p>Быстрая и качественная откачка</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Оплата</h3>
+                <p>Наличные или перевод. Гарантия на работу</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews">
+        <div class="section-header">
+            <span class="section-label">Отзывы клиентов</span>
+            <h2 class="section-title">Что говорят о нас</h2>
+        </div>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">Отличная служба! Приехали через 20 минут, как и обещали. Откачали септик быстро и аккуратно, без запаха и грязи. Цена соответствует заявленной. Рекомендую!</p>
+                <div class="review-author">
+                    <div class="review-avatar">А</div>
+                    <div class="review-info">
+                        <h4>Александр М.</h4>
+                        <p>ул. Строительная</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">Обращались неоднократно. Всегда на связи, работают чётко и профессионально. Вызвали вечером — приехали без проблем. Цена не меняется от времени суток.</p>
+                <div class="review-author">
+                    <div class="review-avatar">Е</div>
+                    <div class="review-info">
+                        <h4>Елена К.</h4>
+                        <p>Чурапча, мкр. Северный</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">Нужно было срочно откачать яму перед приездом гостей. Позвонил в 7 утра — к 7:30 машина уже была на месте. Оперативно и качественно! Спасибо!</p>
+                <div class="review-author">
+                    <div class="review-avatar">М</div>
+                    <div class="review-info">
+                        <h4>Михаил П.</h4>
+                        <p>ул. Ленина</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>🚛 Нужна срочная откачка?</h2>
+        <p>Звоните прямо сейчас! Работаем круглосуточно без выходных. Выезд за 30 минут.</p>
         
         <a href="tel:+79143088587" class="cta-phone">
             📞 +7 (914) 308-85-87
@@ -557,9 +1191,175 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Услуги ассенизатора в Олёкминске<br>
-        📞 +7 (914) 308-85-87<br>
-        Работаем 24/7</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>🚛 Ассенизатор</h3>
+                <p>Профессиональные услуги по откачке септиков, выгребных ям и канализации в Олёкминске и районе.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Услуги</h3>
+                <a href="#services">Откачка септиков</a>
+                <a href="#services">Выгребные ямы</a>
+                <a href="#services">Канализация</a>
+                <a href="#services">Промышленные объекты</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p>📞 +7 (914) 308-85-87</p>
+                <p>🕐 Работаем 24/7</p>
+                <p>📍 Олёкминск и район</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Информация</h3>
+                <a href="#prices">Цены</a>
+                <a href="#why">Почему мы</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#order">Оставить заявку</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 Услуги ассенизатора в Олёкминске. Все права защищены.</p>
+        </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div id="modalForm">
+                <h3 class="modal-title">🚛 Оформить заказ</h3>
+                <p class="modal-subtitle">Заполните форму — мы перезвоним для подтверждения</p>
+                
+                <form id="modalOrderForm">
+                    <div class="form-group">
+                        <label>Тариф</label>
+                        <input type="text" id="modalTariff" readonly style="background: #f3f4f6;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modalName">Ваше имя *</label>
+                        <input type="text" id="modalName" required placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modalPhone">Телефон *</label>
+                        <input type="tel" id="modalPhone" required placeholder="+7 (914) 308-85-87">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modalAddress">Адрес</label>
+                        <input type="text" id="modalAddress" placeholder="ул. Ленина, 15">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">📞 Заказать</button>
+                </form>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✅</div>
+                <h3>Заявка отправлена!</h3>
+                <p>Мы перезвоним вам в ближайшие 5 минут.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Phone mask
+        function maskPhone(input) {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value[0] === '7' || value[0] === '8') value = value.substring(1);
+                    let formatted = '+7';
+                    if (value.length > 0) formatted += ' (' + value.substring(0, 3);
+                    if (value.length >= 3) formatted += ') ' + value.substring(3, 6);
+                    if (value.length >= 6) formatted += '-' + value.substring(6, 8);
+                    if (value.length >= 8) formatted += '-' + value.substring(8, 10);
+                    e.target.value = formatted;
+                }
+            });
+        }
+
+        maskPhone(document.getElementById('phone'));
+        maskPhone(document.getElementById('modalPhone'));
+
+        // Modal
+        function openModal(tariff) {
+            document.getElementById('orderModal').classList.add('active');
+            document.getElementById('modalTariff').value = tariff;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset form
+            document.getElementById('modalForm').style.display = 'block';
+            document.getElementById('successMessage').classList.remove('show');
+        }
+
+        // Form submissions
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(this));
+            console.log('Hero form:', data);
+            alert('✅ Заявка отправлена! Мы перезвоним вам в ближайшие 5 минут.');
+            this.reset();
+        });
+
+        document.getElementById('modalOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(this));
+            console.log('Modal form:', data);
+            // Show success
+            document.getElementById('modalForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+        });
+
+        // Close modal on outside click
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Mobile menu
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
